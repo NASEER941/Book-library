@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library</title>
+    <link rel="stylesheet" href="BookLibrary.css">
+    <script>
+        // JavaScript function to filter books by genre
+        function filterBooks() {
+            const genre = document.getElementById('genre').value;
+            const books = document.querySelectorAll('.book');
+            
+            books.forEach(book => {
+                if (genre === '' || book.getAttribute('data-genre') === genre) {
+                    book.style.display = 'block';
+                } else {
+                    book.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <a href="#">My Book Library</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="reg.html">ADD BOOK</a></li>
+                <li><a href="reg2.html">About Us</a></li>
+                <li><a href="reg3.html">Contact</a></li>
+                <li><a href="Log.html">Login</a></li>
+            </ul>
+        </nav>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Go</button>
+        </div>
+    </header>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Welcome to My Book Library</h1>
+            <p>Find your favorite book today</p>
+        </div>
+    </div>
+    <div class="main-content">
+        <h2>Featured Books</h2>
+        
+        <!-- Genre Filter -->
+        <div class="filter">
+            <label for="genre">Filter by Genre:</label>
+            <select id="genre" onchange="filterBooks()">
+                <option value="">All Genres</option>
+                <option value="thriller">Thriller</option>
+                <option value="mystery">Mystery</option>
+                <option value="religious">Religious</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="science-fiction">Science Fiction</option>
+                <option value="non-fiction">Non-Fiction</option>
+                <!-- Add more genres as needed -->
+            </select>
+        </div>
+        
+        <div class="books">
+            <!-- Book 1: SHADOW OF DECEIT -->
+            <div class="book" data-genre="thriller">
+                <img src="https://www.free-ebooks.net/2d_covers/large/1723961591.jpg" alt="SHADOW OF DECEIT">
+                <h3>SHADOW OF DECEIT</h3>
+                <p>by Vaibhav Garg</p>
+                <p>Genre: Thriller</p>
+                <p>Free</p>
+                <a href="C:\Users\mdnas\Downloads/SHADOW OF DECIET.pdf" class="btn">Read Now</a>
+            </div>
+            <!-- Book 2: Black Birds Hold Secrets -->
+            <div class="book" data-genre="mystery">
+                <img src="https://www.free-ebooks.net/2d_covers/large/1716683915.jpg" alt="Black Birds Hold Secrets">
+                <h3>Black Birds Hold Secrets</h3>
+                <p>by Blake Steidler</p>
+                <p>Genre: Mystery</p>
+                <p>Free</p>
+                <a href="C:\Users\mdnas\Downloads/Black Birds hold secrets.pdf"crets.pdf class="btn">Read Now</a>
+            </div>
+            <!-- Book 3: DIVINE MERCY DEVOTION -->
+            <div class="book" data-genre="religious">
+                <img src="https://www.free-ebooks.net/2d_covers/large/1723985131.jpg" alt="DIVINE MERCY DEVOTION">
+                <h3>DIVINE MERCY DEVOTION</h3>
+                <p>by SR MARRY JOE CSN</p>
+                <p>Genre: Religious</p>
+                <p>Free</p>
+                <a href="C:\Users\mdnas\Downloads/DIVINE MERCY.pdf" class="btn">Read Now</a>
+            </div>
+            <!-- Additional Books -->
+            <div class="book" data-genre="fantasy">
+                <img src="https://www.aliceandbooks.com/covers/A_Connecticut_Yankee_in_King_Arthurs_Court-Mark_Twain-md.png" alt="A Connecticut Yankee in King Arthur's Court">
+                <h3>A Connecticut Yankee in King Arthur's Court</h3>
+                <p>by Mark Twain</p>
+                <p>Genre: Fantasy</p>
+                <p>Free</p>
+                <a href="C:\Users\mdnas\Downloads/A_Connecticut_Yankee_in_King_Arthur's_Court-Mark_Twain.pdf" class="btn">Read Now</a>
+            </div>
+            <div class="book" data-genre="science-fiction">
+                <img src="https://www.free-ebooks.net/2d_covers/large/1723803088.jpg" alt="Science Fiction Book Title">
+                <h3>Science Fiction Book /A_Connecticut_Yankee_in_King_Arthur's_Court-Mark_Twain.pdfTitle</h3>
+                <p>by Patkos Csaba</p>
+                <p>Genre: Science Fiction</p>
+                <p>Free</p>
+                <a href="C:\Users\mdnas\Downloads/PATKOS CSABA.PDF" class="btn">Read Now</a>
+            </div>
+            <div class="book" data-genre="non-fiction">
+                <img src="https://www.free-ebooks.net/2d_covers/large/1718430962.jpg" alt="Non-Fiction Book">
+                <h3>Non-Fiction Book</h3>
+                <p>by Solomon</p>
+                <p>Genre: Non-Fiction</p>
+                <p>Free</p>
+                <a href="C:\Users\mdnas\Downloads/SOLOMON.pdf" class="btn">Read Now</a>
+            </div>
+        </div>
+        <a href="#" class="btn">View All Books</a>
+    </div>
+    <footer>
+        <p>&copy; 2024 My Book Library. All Rights Reserved</p>
+    </footer>
+</body>
+</html>
