@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Repair Platform</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+ <style>
+  /* Navbar Styles */
+  .navbar-dark-custom {
+    background-color: #2c3e50; /* Darker Gray Background */
+    color: white; /* Subtle Silver Text */
+  }
+
+  .navbar-dark-custom .navbar-brand {
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .navbar-dark-custom .navbar-brand:hover {
+    color: #f8f9fa; /* White on Hover */
+  }
+
+  .navbar-dark-custom .nav-link {
+    color: white; /* Medium Gray for Links */
+    transition: color 0.3s ease-in-out;
+  }
+
+  .navbar-dark-custom .nav-link:hover {
+    color: #f8f9fa; /* White on Hover */
+  }
+
+  .navbar-nav .nav-link.dropdown-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    color: #fff; /* Adjust based on navbar color */
+  }
+
+  .navbar-nav .nav-link .arrow {
+    margin-left: 5px;
+    font-size: 0.8em;
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .navbar-nav .nav-link.dropdown-toggle[aria-expanded="true"] .arrow {
+    transform: rotate(180deg); /* Rotate arrow when expanded */
+  }
+
+  .signup-btn {
+    background-color: transparent;
+    color: #a8a8a8;
+    border: 1px solid #a8a8a8;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .signup-btn:hover {
+    background-color: white; /* Dark Gray */
+    color: white; /* White on Hover */
+  }
+
+  /* General Section Styling */
+  .service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+  }
+
+  .service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    background: #2c3e50;
+    border: 1px solid #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .service-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+
+  .service-item span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  /* Section Styling */
+  .section-heading {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+  }
+
+  .section-content {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  /* Custom Hover Effect for Buttons */
+  .btn-book-now {
+    width: 100%;
+    background-color: black;
+    border: none;
+    color: #f8f9fa;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-book-now:hover {
+    background-color: rgb(33, 33, 33);
+  }
+  /* Styling for Car Service Section */
+.car-service {
+  background-color: #f8f9fa;
+  padding: 50px 0;
+}
+
+.car-service .section-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.car-service .service-item {
+  text-align: center;
+  background-color: #2c3e50;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.car-service .service-item:hover {
+  transform: scale(1.05);
+}
+
+.car-service .service-icon {
+  font-size: 50px;
+  color: #ff6f61;
+  margin-bottom: 20px;
+}
+
+.car-service .service-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.car-service .service-item h3 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.car-service .service-item p {
+  font-size: 16px;
+  color: #777;
+}
+/* Styling for Car Service Section */
+.car-service {
+  background-color: #eee;
+  padding: 50px 0;
+}
+
+.car-service .section-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.car-service .service-item {
+  text-align: center;
+  background-color:#2c3e50;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.car-service .service-item:hover {
+  transform: scale(1.05);
+}
+
+.car-service .service-icon {
+  font-size: 50px;
+  color: #ff6f61;
+  margin-bottom: 20px;
+}
+
+.car-service .service-item h3 {
+  font-size: 22px;
+  color:silver;
+  margin-bottom: 10px;
+}
+
+.car-service .service-item p {
+  font-size: 16px;
+  color: silver;
+}
+
+/* Make sure all service images have the same dimensions */
+.car-service .service-image {
+  width: 90%;
+  height: 200px; /* Set fixed height */
+  object-fit: cover; /* Ensure the images cover the container without distortion */
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+/* Make the service items responsive */
+@media (max-width: 768px) {
+  .car-service .service-item {
+    margin-bottom: 30px;
+  }
+}
+#why-choose-us {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+#why-choose-us h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: silver;
+}
+
+#why-choose-us p {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: #666;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.service-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #007BFF;
+}
+
+.service-item h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.service-item p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}/* Hero Section */
+#hero {
+  background: url('images/herocar.avif') center center / cover no-repeat;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: silver;
+  position: relative;
+  overflow: hidden;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  z-index: 1;
+  padding: 15px;
+}
+
+/* Parallax Effect */
+#hero {
+  background-attachment: fixed; /* Adds parallax scrolling */
+}
+
+/* Hero Content Container */
+.hero-container {
+  z-index: 2;
+  max-width: 800px;
+  padding: 20px;
+  animation: fadeIn 1.5s ease-in-out; /* Subtle fade-in effect */
+}
+
+/* Hero Heading */
+#hero h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #f9f9f9;
+  text-transform: uppercase;
+  animation: textSlideIn 1.5s ease-in-out; /* Slide-in animation */
+}
+
+/* Hero Subtext */
+#hero p {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+/* Call-to-Action Button */
+.btn-primary {
+  display: inline-block;
+  padding: 15px 30px;
+  background: linear-gradient(to right, #2c3e50, #2c3e50); /* Vibrant gradient */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hero Section Spacing with Why Choose Us */
+#why-choose-us {
+  margin-top: -70px; /* Seamlessly connects Hero and Why Choose Us */
+  padding-top: 70px;
+  background-color: #2c3e50;
+}
+
+
+/* Enhanced Advantages Section */
+#advantages {
+  padding: 80px 20px;
+  background: linear-gradient(to bottom, #ffffff, #f5f5f5);
+  text-align: center;
+}
+
+#advantages h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #222;
+  font-weight: bold;
+}
+
+#advantages p {
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  color: #666;
+}
+
+/* Grid Layout */
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* Card Style for Each Feature */
+.advantage-item {
+  background: linear-gradient(145deg, #2c3e50, #2c3e50);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.1), -6px -6px 15px rgba(255, 255, 255, 0.7);
+  transition: all 0.4s ease;
+  text-align: left;
+}
+
+.advantage-item:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2), -10px -10px 20px rgba(255, 255, 255, 0.9);
+}
+
+/* Feature Image Styling */
+.advantage-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+}
+
+/* Feature Text Styling */
+.advantage-item h3 {
+  font-size: 1.5rem;
+  margin: 20px;
+  color: silver;
+  font-weight: bold;
+}
+
+.advantage-item p {
+  font-size: 1rem;
+  margin: 0 20px 20px;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+/* Hover Image Glow Effect */
+.advantage-item img:hover {
+  filter: brightness(1.2) contrast(1.1);
+  transition: all 0.4s ease;
+  box-shadow: #2c3e50
+}
+/* Stats Section */
+.stats-section {
+  background: linear-gradient(135deg, #2c3e50, #4b79a1);
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.stats-section h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #f8f9fa;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff6f61;
+  margin-bottom: 10px;
+}
+
+.stat-item p {
+  font-size: 1.2rem;
+  color: #f8f9fa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stats-section h2 {
+    font-size: 2.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+/* Stats Section */
+.stats-section {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.stats-section h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  align-items: center;
+}
+
+.stat-item {
+  background: #2c3e50;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: bold;
+  color: silver;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.stat-item p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+
+/* Decorative Circle Behind Icons */
+.step-item::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  background-color: #2c3e50;
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.15;
+}
+
+/* Icon Styling */
+.step-item .icon {
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.step-item:hover .icon {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Step Title */
+.step-item h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.step-item:hover h3 {
+  color: #fff;
+}
+
+/* Step Description */
+.step-item p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.step-item:hover p {
+  color: #e0e0e0;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* How It Works Section */
+#how-it-works {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#how-it-works .hero-heading h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+#how-it-works .hero-heading p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* Steps Grid */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.step-item {
+  background: #2c3e50;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Styling */
+.step-item .icon {
+  font-size: 3rem;
+  color: #007BFF;
+  margin-bottom: 15px;
+}
+
+/* Step Title */
+.step-item h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+/* Step Description */
+.step-item p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #how-it-works .hero-heading h1 {
+    font-size: 2.5rem;
+  }
+
+  .steps-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .step-item .icon {
+    font-size: 2.5rem;
+  }
+
+  .step-item h3 {
+    font-size: 1.25rem;
+  }
+}
+/* Customer Testimonials Section */
+.testimonials-section {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.testimonials-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.testimonials-section .subheading {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* Testimonial Carousel Styling */
+.testimonials-carousel {
+  display: flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  gap: 20px;
+}
+
+.testimonial-item {
+  flex: 0 0 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  background: #2c3e50;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  color:silver;
+  margin-bottom: 15px;
+}
+
+.customer-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.source {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .testimonials-carousel {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .testimonial-item {
+    max-width: 100%;
+  }
+}
+footer {
+  background-color: #2c3e50;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  color: silver;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-about,
+.footer-services,
+.footer-links {
+  flex: 1;
+  margin: 10px;
+}
+
+.footer-about img {
+  width: 150px;
+  margin-bottom: 15px;
+}
+
+.footer-about p {
+  line-height: 1.6;
+}
+
+.footer-social a {
+  margin: 0 10px;
+  color: #333;
+  font-size: 20px;
+}
+
+.footer-social a:hover {
+  color: #2c3e50;
+}
+
+.footer-contact p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.footer-contact a {
+  color: #333;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-services h3,
+.footer-links h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-services ul,
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-services li,
+.footer-links li {
+  margin: 5px 0;
+}
+
+.footer-services a,
+.footer-links a {
+  color: #333;
+  text-decoration: none;
+}
+
+.footer-services a:hover,
+.footer-links a:hover {
+  color: silver;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color:silver;
+}
+
+.footer-bottom p {
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-about,
+  .footer-services,
+  .footer-links {
+    margin: 20px 0;
+  }
+}
+/* Custom CSS for How It Works section */
+#how-it-works .step-item {
+    background-color: #333; /* Dark background for contrast */
+    color: white; /* White text color */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: adds subtle shadow to the boxes */
+}
+
+#how-it-works .icon {
+    font-size: 3rem;
+    color: white; /* White icon */
+    background-color: transparent; /* No background, just text */
+}
+
+#how-it-works .step-item h3,
+#how-it-works .step-item p {
+    color: white; /* Ensure both headings and paragraphs have white text */
+}
+
+#how-it-works .step-item:hover {
+    background-color: #2c3e50; /* Slightly lighter background on hover */
+}
+
+/* Optional: Custom styles for hover effect */
+#how-it-works .step-item:hover .icon {
+    color: #FFD700; /* Gold color on icon hover */
+}
+
+
+
+
+
+
+
+
+
+</style>
+
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark-custom shadow-sm">
+  <div class="container">
+      <a class="navbar-brand" href="#">
+          <img src="images/NASEER LOGO.png" width="80" height="80" alt="Logo">
+          India's Car Repair
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="aboutus2.html">About Us</a></li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                  <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                      <li><a class="dropdown-item" href="services.html">workshop</a></li>
+                      <li><a class="dropdown-item" href="tyres.html">tyres</a></li>
+                      <li><a class="dropdown-item" href="oilchange.html">oilchange</a></li>
+                      <li><a class="dropdown-item" href="carwash.html">carwash</a></li>
+                      <li><a class="dropdown-item" href="Acessories.html">Accessories</a></li>
+                  </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="contact2.html">Contact Us</a></li>
+              <li class="nav-item">
+                <li class="nav-item"><a class="nav-link" href="privacy2.html">Privacy Policy</a></li>
+              </li>
+             
+              
+
+          </ul>
+      </div>
+  </div>
+</nav>
+ <!-- Pricing Section -->
+<section id="pricing" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4" data-aos="fade-up">Our Plans</h2>
+        <div class="row justify-content-center">
+            <!-- Ultimate Plan -->
+            <div class="col-md-4" data-aos="zoom-in">
+                <div class="card shadow-lg border-0 h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Ultimate Plan</h5>
+                        <p class="display-5 fw-bold text-primary">₹149.99</p>
+                        <ul class="list-unstyled mt-4">
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Premium Oil Change</li>
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Ultimate Filter Replacement</li>
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Full Engine Check</li>
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Comprehensive Diagnostic Report</li>
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Tire Rotation</li>
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Free Car Wash</li>
+                            <li><i class="bi bi-check-circle-fill text-success"></i> Battery Health Check</li>
+                            <li><i class="bi bi-check-circle-fill text-success"></i> 24/7 Roadside Assistance</li>
+                        </ul>
+                        <a href="ultimatepplanpayment.html" class="btn btn-primary mt-4">Choose Plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+ <STyle>
+     /* General Pricing Section Styling */
+#pricing {
+    background-color: #f8f9fa; /* Light grey background for better contrast */
+    padding: 50px 0; /* Adds space around the section */
+}
+
+/* Card Design */
+#pricing .card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth scale and shadow effect */
+    border-radius: 15px; /* Soft rounded corners for a modern look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+#pricing .card:hover {
+    transform: scale(1.05); /* Grows slightly on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhances shadow on hover */
+}
+
+/* Card Title */
+#pricing .card-title {
+    font-size: 1.8rem; /* Slightly larger for emphasis */
+    margin-bottom: 1rem;
+    font-weight: bold; /* Adds prominence */
+    color: #007bff; /* Blue color for visual appeal */
+}
+
+/* List Items Inside Cards */
+#pricing .card-body ul {
+    padding: 0; /* Removes default padding */
+    list-style-type: none; /* Removes default bullet points */
+}
+
+#pricing .card-body ul li {
+    font-size: 1rem; /* Readable font size */
+    margin: 0.5rem 0; /* Space between items */
+    display: flex; /* Aligns icons and text */
+    align-items: center; /* Vertically centers the content */
+}
+
+#pricing .card-body ul li i {
+    font-size: 1.2rem; /* Larger icons for better visibility */
+    margin-right: 10px; /* Spacing between icon and text */
+    color: #28a745; /* Green for a positive feel */
+}
+
+/* Button Styling */
+#pricing .btn {
+    background-color: #007bff; /* Primary blue color */
+    color: #fff; /* White text for contrast */
+    font-size: 1.1rem; /* Slightly larger for readability */
+    padding: 10px 20px; /* Comfortable padding */
+    border-radius: 25px; /* Rounded corners for modern design */
+    transition: background-color 0.3s ease-in-out; /* Smooth color change */
+}
+
+#pricing .btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    color: #fff; /* Maintains white text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #pricing .card {
+        margin-bottom: 20px; /* Adds spacing between cards on smaller screens */
+    }
+
+    #pricing .card-title {
+        font-size: 1.5rem; /* Adjusts title size for smaller devices */
+    }
+}
+
+ </STyle>
+  <!-- Footer Section -->
+<footer style="background-color: #2c3e50; color: #fff; padding: 20px 0; text-align: center;">
+    <div class="container">
+      <!-- Footer Content -->
+      <p class="mb-2">© 2024 India's Car Repair. All rights reserved.</p>
+      <p class="mb-3" style="font-size: 0.9em;">Reliable car repair and maintenance services across India.</p>
+      
+      <!-- Footer Links -->
+      <ul class="list-inline mb-0">
+        <li class="list-inline-item">
+          <a href="#about" style="color: silver; text-decoration: none;">About Us</a>
+        </li>
+        <li class="list-inline-item">
+          <span>|</span>
+        </li>
+        <li class="list-inline-item">
+          <a href="#services" style="color: silver; text-decoration: none;">Services</a>
+        </li>
+        <li class="list-inline-item">
+          <span>|</span>
+        </li>
+        <li class="list-inline-item">
+          <a href="#contact" style="color: silver; text-decoration: none;">Contact</a>
+        </li>
+      </ul>
+      
+      <!-- Social Icons -->
+      <div class="mt-3">
+        <a href="#" style="color: silver; margin: 0 10px; font-size: 1.2em;"><i class="bi bi-facebook"></i></a>
+        <a href="#" style="color: silver; margin: 0 10px; font-size: 1.2em;"><i class="bi bi-twitter"></i></a>
+        <a href="#" style="color: silver; margin: 0 10px; font-size: 1.2em;"><i class="bi bi-instagram"></i></a>
+        <a href="#" style="color: silver; margin: 0 10px; font-size: 1.2em;"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+  <STyle>
+    footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    font-size: 0.9em;
+  }
+  
+  footer a {
+    color: silver;
+    transition: color 0.3s;
+  }
+  
+  footer a:hover {
+    color: #007bff;
+  }
+  
+  footer .list-inline {
+    padding: 0;
+    margin: 0;
+  }
+  
+  footer .list-inline-item {
+    margin: 0 5px;
+  }
+  
+  footer .bi {
+    transition: transform 0.3s ease;
+  }
+  
+  footer .bi:hover {
+    transform: scale(1.2);
+  }
+  
+  </STyle>
+  
+  
+  
+  
+  
+    
+  
+  
+  
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

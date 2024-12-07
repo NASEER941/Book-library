@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <title>Car Accessories Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f9f9f9, #e3f2fd);
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .navbar .logo {
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .navbar .logo i {
+            margin-right: 8px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bb5;
+        }
+
+        .product-select {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #007bb5;
+            border-radius: 5px;
+        }
+
+        .product-details {
+            margin: 15px 0;
+            font-size: 16px;
+        }
+
+        .qr-code-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .qr-code-container h2 {
+            color: #007bb5;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            background-color: #007bb5;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005f89;
+        }
+    </style>
+</head>
+<body>
+  
+    <div class="container">
+        <h1>Car Accessories Payment</h1>
+
+        <label for="product-select">Select Product:</label>
+        <select id="product-select" class="product-select">
+            <option value="carjack" data-price="5">Car Jack - ₹5</option>
+            <option value="wrenchset" data-price="1200">Wrench Set - ₹1200</option>
+            <option value="tireinflator" data-price="3000">Tire Inflator - ₹3000</option>
+        </select>
+
+        <div class="product-details">
+            <p id="selected-product">Selected: Car Jack</p>
+            <p id="product-price">Price: ₹5</p>
+        </div>
+
+        <div class="qr-code-container">
+            <h2>Pay via QR Code</h2>
+            <canvas id="qr-code"></canvas>
+        </div>
+
+        <label for="payment-screenshot">Upload Payment Screenshot:</label>
+        <input type="file" accept=".jpg, .jpeg, .png" id="payment-screenshot">
+        <div class="file-name" id="screenshot-name">No screenshot uploaded</div>
+
+        <button onclick="submitDetails()">Submit Payment</button>
+    </div>
+    
+    <script>
+        const productSelect = document.getElementById('product-select');
+        const selectedProductDisplay = document.getElementById('selected-product');
+        const productPriceDisplay = document.getElementById('product-price');
+        const screenshotInput = document.getElementById('payment-screenshot');
+        const screenshotNameDisplay = document.getElementById('screenshot-name');
+        const qrCanvas = document.getElementById('qr-code');
+
+        let qr = new QRious({ element: qrCanvas, size: 150 });
+
+        function updateQR() {
+            const selectedOption = productSelect.options[productSelect.selectedIndex];
+            const productName = selectedOption.text.split(' - ')[0];
+            const price = selectedOption.getAttribute('data-price');
+
+            selectedProductDisplay.textContent = `Selected: ${productName}`;
+            productPriceDisplay.textContent = `Price: ₹${price}`;
+
+            qr.set({
+                value: `upi://pay?pa=naseer2170@ybl&pn=${encodeURIComponent(productName)}&am=${price}&tn=Payment for ${encodeURIComponent(productName)}`,
+            });
+        }
+
+        productSelect.addEventListener('change', updateQR);
+
+        screenshotInput.addEventListener('change', () => {
+            const files = screenshotInput.files;
+            if (files.length > 0) {
+                screenshotNameDisplay.textContent = `Screenshot: ${files[0].name}`;
+            }
+        });
+
+        function submitDetails() {
+            const selectedOption = productSelect.options[productSelect.selectedIndex];
+            const productName = selectedOption.text.split(' - ')[0];
+            const price = selectedOption.getAttribute('data-price');
+            const screenshotName = screenshotInput.files.length > 0 ? screenshotInput.files[0].name : 'No screenshot';
+
+            const paymentDetails = {
+                productName: productName,
+                price: price,
+                screenshotName: screenshotName,
+            };
+
+            // Store in local storage
+            localStorage.setItem('paymentDetails', JSON.stringify(paymentDetails));
+
+            alert("Payment details submitted successfully and stored in local storage!");
+        }
+
+        // Initialize QR code with the default product
+        updateQR();
+    </script>
+    
+</body>
+</html>

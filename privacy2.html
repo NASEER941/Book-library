@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Car Repair Maintenance</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    /* Global Styles */
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 600;
+    }
+
+    p, ul, li {
+        line-height: 1.8;
+        color: #555;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* Navbar Styles */
+    .navbar-dark-custom {
+        background-color: #2c3e50;
+        color: white;
+    }
+
+    .navbar-dark-custom .navbar-brand {
+        font-weight: bold;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    .navbar-dark-custom .nav-link {
+        font-size: 1rem;
+        color: #ddd;
+        transition: color 0.3s;
+    }
+
+    .navbar-dark-custom .nav-link:hover {
+        color: white;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        background: url('images/terms.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: #2c3e50;
+        text-align: center;
+        padding: 150px 20px;
+        position: relative;
+    }
+
+    .hero-section::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+    }
+
+    .hero-section h1,
+    .hero-section p {
+        position: relative;
+        z-index: 2;
+        font-weight: 700;
+    }
+
+    /* Content Section */
+    .content-section {
+        padding: 60px 20px;
+        background-color: #2c3e50;
+        color: white;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .content-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+        color: gold;
+    }
+
+    .content-section p {
+        font-size: 1.1rem;
+        color: #ddd;
+        text-align: justify;
+        margin-bottom: 15px;
+    }
+
+    .content-section ul {
+        list-style-type: disc;
+        padding-left: 40px;
+        color: #ddd;
+        margin-bottom: 15px;
+    }
+
+    .content-section ul li {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    /* Footer Styles */
+    .footer {
+        background-color: #2e3c50;
+        color: white;
+        padding: 40px 20px;
+    }
+
+    .footer-logo {
+        max-width: 150px;
+    }
+
+    .footer-description {
+        font-size: 1rem;
+        color: #ddd;
+        margin-top: 10px;
+    }
+
+    .footer h5 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+
+    .footer-links {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        color: #ddd;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: #f8c537;
+    }
+
+    .social-icons a {
+        color: #fff;
+        margin-right: 10px;
+        font-size: 18px;
+    }
+
+    .social-icons a:hover {
+        color: #f8c537;
+    }
+
+    /* Google Map Embed */
+    .google-map iframe {
+        border-radius: 8px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .footer .row {
+            text-align: center;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-description {
+            margin-bottom: 20px;
+        }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark-custom">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="images/NASEER LOGO.png" width="110" height="90" alt="Logo">
+        India's Car Repair
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="navbar.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="aboutus2.html">About Us</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">Services</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="services.html">Workshop</a></li>
+              <li><a class="dropdown-item" href="tyres.html">Tyres</a></li>
+              <li><a class="dropdown-item" href="oilchange.html">Oil Change</a></li>
+              <li><a class="dropdown-item" href="carwash.html">Car Wash</a></li>
+              <li><a class="dropdown-item" href="Acessories.html">Accessories</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="contact2.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content container">
+      <h1 class="display-4 fw-bold animate__animated animate__fadeInUp">Privacy Policy</h1>
+      <p class="lead mt-3 animate__animated animate__fadeInUp animate__delay-1s">Your Privacy Matters to Us</p>
+    </div>
+  </section>
+  <section class="content-section container">
+    <h2 class="text-center animate__animated animate__fadeIn">Introduction</h2>
+    <p class="animate__animated animate__fadeInUp animate__delay-1s">
+      Welcome to Car Repair Maintenance. Protecting your privacy is our top priority. This page explains how we collect, use, and protect your information.
+    </p>
+  
+    <h2 class="animate__animated animate__fadeInUp">What We Collect</h2>
+    <ul class="animate__animated animate__fadeInUp animate__delay-1s">
+      <li>Personal information such as your name, email, and phone number.</li>
+      <li>Vehicle details for servicing and diagnostics.</li>
+      <li>Payment information to process secure transactions.</li>
+    </ul>
+  
+    <h2 class="animate__animated animate__fadeInUp">How We Use Your Data</h2>
+    <ul class="animate__animated animate__fadeInUp animate__delay-1s">
+      <li>To provide tailored car maintenance services.</li>
+      <li>To enhance user experience through personalized interactions.</li>
+      <li>To ensure payment security and service reliability.</li>
+    </ul>
+  
+    <h2 class="animate__animated animate__fadeInUp">Your Rights</h2>
+    <p class="animate__animated animate__fadeInUp animate__delay-1s">
+      You have the right to access, update, or delete your information and can contact us at any time for assistance.
+    </p>
+  </section>
+  
+  <!-- Add Custom Styling -->
+  <style>
+    h2 {
+      color: #f8c537; /* Gold color for the heading */
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: bold;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+  
+    p, ul {
+      color: white; /* White color for the content */
+    }
+  
+    ul {
+      list-style-type: disc;
+      padding-left: 40px;
+      margin-bottom: 20px;
+    }
+  
+    ul li {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      line-height: 1.8;
+      color: white; /* White color for the list items */
+      transition: color 0.3s ease-in-out;
+    }
+  
+    /* Highlight list items on hover */
+    ul li:hover {
+      color: #f8c537; /* Optional: Change list item color to gold on hover */
+    }
+  
+    /* Animation for Fade-in effect */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  >
+  
+  <!-- Add Custom Styling -->
+  <style>
+    h2 {
+      color: #f8c537; /* Gold color for the heading */
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: bold;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+  
+    p, ul {
+      color: white; /* White color for the content */
+    }
+  
+    ul {
+      list-style-type: disc;
+      padding-left: 40px;
+      margin-bottom: 20px;
+    }
+  
+    ul li {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      line-height: 1.8;
+      transition: color 0.3s ease-in-out;
+    }
+  
+    /* Highlight list items on hover */
+    ul li:hover {
+      color: #f8c537; /* Optional: Change list item color to gold on hover */
+    }
+  
+    /* Animation for Fade-in effect */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  
+
+
+
+  
+
+
+
+
+ <!-- Include Bootstrap Icons CDN in the head -->
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <img src="images/NASEER LOGO.png" alt="Logo" class="footer-logo">
+        <p class="footer-description">
+          We provide reliable and affordable car repair services, ensuring your vehicle is always in top condition.
+        </p>
+      </div>
+      <div class="col-lg-3">
+        <h5>Useful Links</h5>
+        <ul class="footer-links">
+          <li><a href="navbar.html">Home</a></li>
+          <li><a href="aboutus2.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact2.html">Contact Us</a></li>
+          <li><a href="contact2.html">privacypolicy terms&conditions</a></li>
+
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h5>Follow Us</h5>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <h5>Our Location</h5>
+        <div class="google-map">
+          <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Add CSS for Social Icons -->
+<style>
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+
+  .social-icons a {
+    color: white;
+    font-size: 24px;
+    transition: color 0.3s;
+  }
+
+  .social-icons a:hover {
+    color: #f8c537;
+  }
+</style>
+
+  <!-- Bootstrap JS & Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

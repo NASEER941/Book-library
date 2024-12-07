@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <title>Ultimate Plan Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f9f9f9, #e3f2fd);
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .navbar .logo {
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .navbar .logo i {
+            margin-right: 8px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bb5;
+        }
+
+        .plan-details {
+            margin: 20px 0;
+            font-size: 16px;
+        }
+
+        .plan-details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .plan-details ul li {
+            margin: 5px 0;
+        }
+
+        .qr-code-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .qr-code-container h2 {
+            color: #007bb5;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            background-color: #007bb5;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005f89;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <h1>Ultimate Plan Payment</h1>
+
+        <div class="plan-details">
+            <h2>Services Included:</h2>
+            <ul>
+                <li>✔ Premium Oil Change</li>
+                <li>✔ Ultimate Filter Replacement</li>
+                <li>✔ Full Engine Check</li>
+                <li>✔ Comprehensive Diagnostic Report</li>
+                <li>✔ Tire Rotation</li>
+                <li>✔ Free Car Wash</li>
+                <li>✔ Battery Health Check</li>
+                <li>✔ 24/7 Roadside Assistance</li>
+            </ul>
+            <p><strong>Price: ₹149.99</strong></p>
+        </div>
+
+        <div class="qr-code-container">
+            <h2>Pay via QR Code</h2>
+            <canvas id="qr-code"></canvas>
+        </div>
+
+        <label for="payment-screenshot">Upload Payment Screenshot:</label>
+        <input type="file" accept=".jpg, .jpeg, .png" id="payment-screenshot">
+        <div class="file-name" id="screenshot-name">No screenshot uploaded</div>
+
+        <button onclick="submitDetails()">Submit Payment</button>
+    </div>
+    
+    <script>
+        const screenshotInput = document.getElementById('payment-screenshot');
+        const screenshotNameDisplay = document.getElementById('screenshot-name');
+        const qrCanvas = document.getElementById('qr-code');
+
+        let qr = new QRious({
+            element: qrCanvas,
+            size: 150,
+            value: `upi://pay?pa=naseer2170@ybl&pn=Ultimate%20Plan&am=149.99&tn=Payment for Ultimate Plan`
+        });
+
+        screenshotInput.addEventListener('change', () => {
+            const files = screenshotInput.files;
+            if (files.length > 0) {
+                screenshotNameDisplay.textContent = `Screenshot: ${files[0].name}`;
+            }
+        });
+
+        function submitDetails() {
+            alert("Payment details submitted successfully!");
+        }
+    </script>
+</body>
+</html>

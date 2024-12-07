@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Repair Platform</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    /* Navbar Styles */
+    .navbar-dark-custom {
+      background-color: #2c3e50; /* Darker Gray Background */
+      color: #b0b0b0; /* Subtle Silver Text */
+    }
+    
+  
+    .navbar-dark-custom .navbar-brand {
+      color:white;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .navbar-dark-custom .navbar-brand:hover {
+      color: #f8f9fa; /* White on Hover */
+    }
+  
+    .navbar-dark-custom .nav-link {
+      color: white; /* Medium Gray for Links */
+      transition: color 0.3s ease-in-out;
+    }
+  
+    .navbar-dark-custom .nav-link:hover {
+      color: #f8f9fa; /* White on Hover */
+    }
+  
+    .navbar-nav .nav-link.dropdown-toggle {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      color: #fff; /* Adjust based on navbar color */
+    }
+  
+    .navbar-nav .nav-link .arrow {
+      margin-left: 5px;
+      font-size: 0.8em;
+      display: inline-block;
+      transition: transform 0.2s ease-in-out;
+    }
+  
+    .navbar-nav .nav-link.dropdown-toggle[aria-expanded="true"] .arrow {
+      transform: rotate(180deg); /* Rotate arrow when expanded */
+    }
+  
+    .signup-btn {
+      background-color: transparent;
+      color: #a8a8a8;
+      border: 1px solid #a8a8a8;
+      transition: background-color 0.3s, color 0.3s;
+    }
+  
+    .signup-btn:hover {
+      background-color: #333333; /* Dark Gray */
+      color: white; /* White on Hover */
+    }
+    body {
+     background: linear-gradient(to right, #b6cbec, #bdd3dd);
+
+
+
+
+ /* Gradient background */
+        font-family: 'Arial', sans-serif;
+        color: #333;
+    }
+  
+    
+  </style>
+
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark-custom shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+                  <img src="images/NASEER LOGO.png" width="80" height="80" alt="Logo">
+            India's Car Repair
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="navbar.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutus2.html">About Us</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                      <li><a class="dropdown-item" href="services.html">workshop</a></li>
+                      <li><a class="dropdown-item" href="tyres.html">tyres</a></li>
+                      <li><a class="dropdown-item" href="oilchange.html">oilchange</a></li>
+                      <li><a class="dropdown-item" href="carwash.html">carwash</a></li>
+                      <li><a class="dropdown-item" href="Acessories.html">Accessories</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="contact2.html">Contact Us</a></li>
+               
+            </ul>
+        </div>
+    </div>
+</nav>
+<section id="workshop-overview" class="workshop-section">
+  <div class="container">
+    <!-- Workshop Introduction -->
+    <div class="header text-center mb-5" data-aos="fade-up">
+      <h1>Welcome to Our State-of-the-Art Workshop</h1>
+      <p>
+        At our workshop, we specialize in comprehensive car repair and maintenance services. Our expert technicians and cutting-edge equipment ensure your vehicle receives the care it deserves. Explore a wide range of services designed to keep your car running smoothly and safely.
+      </p>
+    </div>
+
+    <!-- Workshop Image & Overview -->
+    <div class="workshop-overview row align-items-center mb-5">
+      <div class="workshop-image col-lg-6" data-aos="fade-right">
+        <img src="images/workshop.jpg" alt="Workshop Overview" class="img-fluid rounded shadow">
+      </div>
+      <div class="workshop-content col-lg-6" data-aos="fade-left">
+        <h2>What We Offer</h2>
+        <p>
+          From routine maintenance to complex repairs, our workshop is equipped to handle all your automotive needs. We deliver exceptional service and customer satisfaction at every step.
+        </p>
+        <ul class="list-unstyled">
+          <li><strong>Certified Mechanics:</strong> Experienced professionals you can trust.</li>
+          <li><strong>Advanced Diagnostics:</strong> Modern tools for precise issue detection.</li>
+          <li><strong>Quality Assurance:</strong> Guaranteed workmanship for peace of mind.</li>
+          <li><strong>Transparent Pricing:</strong> No hidden charges, just honest service.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Service Highlights -->
+    <div class="services-section">
+      <h1 class="services-heading text-center mb-5" data-aos="zoom-in">Our Services</h1>
+      <div class="services-grid row">
+        <div class="service-card col-lg-3 col-md-6 mb-4" data-aos="flip-left" data-aos-delay="100">
+          <img src="images/oilchange.avif" alt="Oil Change" class="img-fluid rounded">
+          <h3 class="mt-3">Oil Change</h3>
+          <p>Enhance engine efficiency with high-quality oil changes performed by experts.</p>
+        </div>
+        <div class="service-card col-lg-3 col-md-6 mb-4" data-aos="flip-left" data-aos-delay="200">
+          <img src="images/brakerepair.jpg" alt="Brake Repair" class="img-fluid rounded">
+          <h3 class="mt-3">Brake Repair</h3>
+          <p>Ensure safety with professional brake inspections and reliable repairs.</p>
+        </div>
+        <div class="service-card col-lg-3 col-md-6 mb-4" data-aos="flip-left" data-aos-delay="300">
+          <img src="images/enginediagnostics.avif" alt="Engine Diagnostics" class="img-fluid rounded">
+          <h3 class="mt-3">Engine Diagnostics</h3>
+          <p>Advanced diagnostic tools to identify and fix engine issues swiftly.</p>
+        </div>
+        <div class="service-card col-lg-3 col-md-6 mb-4" data-aos="flip-left" data-aos-delay="400">
+          <img src="images/tireservice.avif" alt="Tire Services" class="img-fluid rounded">
+          <h3 class="mt-3">Tire Services</h3>
+          <p>Comprehensive tire repairs, alignment, and replacements for smooth driving.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Workshop Features -->
+    <div class="workshop-features mt-5">
+      <h2 class="text-center mb-5" data-aos="zoom-in">Why Choose Us?</h2>
+      <div class="features-grid row">
+        <div class="feature-card col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+          <img src="images/onlinebooking.jpg" alt="Online Booking" class="img-fluid rounded-circle shadow">
+          <h3 class="mt-3">Online Booking</h3>
+          <p>Schedule your services at your convenience with our hassle-free online booking system.</p>
+        </div>
+        <div class="feature-card col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+          <img src="images/tracking.avif" alt="Real-Time Tracking" class="img-fluid rounded-circle shadow">
+          <h3 class="mt-3">Real-Time Updates</h3>
+          <p>Stay informed with real-time updates on your vehicle's repair status.</p>
+        </div>
+        <div class="feature-card col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+          <img src="images/custumerrewards.avif" alt="Customer Rewards" class="img-fluid rounded-circle shadow">
+          <h3 class="mt-3">Loyalty Rewards</h3>
+          <p>Earn rewards and discounts every time you choose our services.</p>
+        </div>
+      </div>
+    </div>
+
+  <!-- Testimonials Carousel -->
+<section id="testimonials" class="py-5" style="background-color:burlywood;">
+  <div class="container">
+    <h2 class="text-center mb-5" data-aos="fade-up">What Our Customers Say</h2>
+
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Carousel Inner -->
+      <div class="carousel-inner">
+        <!-- Carousel Item 1 -->
+        <div class="carousel-item active" data-aos="fade-up" data-aos-delay="100">
+          <div class="testimonial text-center p-4">
+            <p class="mb-4 fs-5 text-muted">"Great service and very professional! My car has never run better."</p>
+            <span class="text-dark fw-bold">- Naseer.</span>
+          </div>
+        </div>
+        
+        <!-- Carousel Item 2 -->
+        <div class="carousel-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="testimonial text-center p-4">
+            <p class="mb-4 fs-5 text-muted">"Affordable pricing and top-notch work! I highly recommend it."</p>
+            <span class="text-dark fw-bold">- bhasker.</span>
+          </div>
+        </div>
+        
+        <!-- Carousel Item 3 -->
+        <div class="carousel-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="testimonial text-center p-4">
+            <p class="mb-4 fs-5 text-muted">"Quick pickup and delivery! The team really knows their craft."</p>
+            <span class="text-dark fw-bold">- srija</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</section>
+<style>
+  /* Testimonials Section */
+#testimonials {
+  background-color: bisque;
+}
+
+.testimonial {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial p {
+  font-style: italic;
+  color: #555;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #333;
+  border-radius: 50%;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: #2c3e50;
+}
+
+.carousel-item {
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+</style>
+<script>
+  // Initialize AOS Library
+AOS.init({
+  duration: 800, // Animation duration in milliseconds
+  once: true,    // Animation runs only once
+});
+
+</script>
+    <!-- Call to Action -->
+    <div class="cta-section text-center mt-5" data-aos="fade-up">
+      <h2>Experience the Best Car Care Today!</h2>
+     <a href="bookservice.html" class="btn btn-primary btn-lg mt-3 btn-custom">Book Your Appointment</a>
+
+<style>
+  .btn-custom {
+    background-color: #2c3e50;
+    border-color: #2c3e50;
+    color: #ffffff; /* Ensures text is readable */
+  }
+  .btn-custom:hover {
+    background-color: #1a252f; /* Slightly darker shade for hover effect */
+    border-color: #1a252f;
+  }
+</style>
+
+    </div>
+  </div>
+</section>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800, // Animation duration in milliseconds
+    once: true,    // Animation triggers only once
+  });
+</script>
+
+
+<script>
+  // Select elements
+  const slider = document.querySelector('.testimonial-slider');
+  const nextBtn = document.getElementById('next-btn');
+  const prevBtn = document.getElementById('prev-btn');
+
+  // Variables to track the current index and auto-slide timing
+  let currentIndex = 0;
+  let slideInterval;
+
+  // Move the slider to a specific index with smooth transition
+  function moveSlider(index) {
+    slider.style.transition = 'transform 2s ease-in-out'; // Smooth transition (2 seconds)
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  // Handle next button click
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slider.children.length; // Loop to the first slide if at the end
+    moveSlider(currentIndex);
+    resetAutoSlide(); // Reset auto-slide on user interaction
+  });
+
+  // Handle previous button click
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slider.children.length) % slider.children.length; // Loop to the last slide if at the beginning
+    moveSlider(currentIndex);
+    resetAutoSlide(); // Reset auto-slide on user interaction
+  });
+
+  // Start the automatic slide with a defined interval
+  function autoSlide() {
+    slideInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % slider.children.length;
+      moveSlider(currentIndex);
+    }, 1000); // Set auto-slide interval to 10 seconds for slower pace
+  }
+
+  // Reset the auto-slide timer on manual interaction
+  function resetAutoSlide() {
+    clearInterval(slideInterval);
+    autoSlide(); // Restart the auto-slide
+  }
+
+  // Initialize auto-slide when the page loads
+  autoSlide();
+</script>
+<!-- Footer -->
+<footer class="footer text-white py-4" style="background-color: #2c3e50;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 mb-3 mb-lg-0">
+        <img src="images/NASEER LOGO.png" alt="Logo" class="footer-logo mb-3" width="150" height="120">
+        <p class="footer-description">
+          We provide reliable and affordable car repair services, ensuring your vehicle is always in top condition.
+        </p>
+      </div>
+      <div class="col-lg-3 mb-3 mb-lg-0">
+        <h5>Useful Links</h5>
+        <ul class="footer-links list-unstyled">
+          <li><a href="navbar.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="aboutus2.html" class="text-white text-decoration-none">About Us</a></li>
+          <li><a href="services.html" class="text-white text-decoration-none">Services</a></li>
+          <li><a href="contact2.html" class="text-white text-decoration-none">Contact Us</a></li>
+          <li><a href="privacy2.html" class="text-white text-decoration-none">Privacy Policy & Terms & Conditions</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 mb-3 mb-lg-0">
+        <h5>Follow Us</h5>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F" class="social-icon text-white"><i class="bi bi-facebook"></i></a>
+          <a href="https://techdocs.akamai.com/identity-cloud/docs/the-twitter-social-login-configuration-guide" class="social-icon text-white"><i class="bi bi-twitter"></i></a>
+          <a href="https://www.instagram.com/" class="social-icon text-white"><i class="bi bi-instagram"></i></a>
+          <a href="https://in.linkedin.com/" class="social-icon text-white"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <h5>Our Location</h5>
+        <div class="google-map">
+          <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- CSS for Social Icons -->
+<style>
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+
+  .social-icons a {
+    color: white;
+    font-size: 24px;
+    transition: color 0.3s;
+  }
+
+  .social-icons a:hover {
+    color: #f8c537;
+  }
+
+  .footer-logo {
+    max-width: 100%;
+  }
+
+  .footer-description {
+    font-size: 1rem;
+  }
+
+  .footer-links a:hover {
+    color: #f8c537;
+  }
+</style>
+
+<!-- Bootstrap JS & Popper -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+
+
+
+    
+  
+  
+  
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

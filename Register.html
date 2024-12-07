@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #87CEEB; /* Sky blue background */
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-container {
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .modal-header {
+            background-color: #007bff;
+            color: white;
+        }
+        .strength-meter {
+            height: 5px;
+            width: 100%;
+            background-color: #ddd;
+        }
+        .strength-meter-fill {
+            height: 100%;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <!-- Image Container (Left Side) -->
+            <div class="col-md-6 image-container">
+                <img src="images/reg.jpeg" alt="Placeholder Image">
+            </div>
+            <!-- Form Container (Right Side) -->
+            <div class="col-md-6 form-container">
+                <h2 class="text-center">Register</h2>
+                <form id="registrationForm" onsubmit="submitForm(event)" novalidate>
+                    <div class="mb-3 input-group">
+                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
+                        <div class="invalid-feedback">Please enter your full name.</div>
+                    </div>
+                    <div class="mb-3 input-group">
+                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+                    <div class="mb-3 input-group">
+                        <span class="input-group-text"><i class="bi bi-phone"></i></span>
+                        <input type="text" class="form-control" id="mobileNumber" name="mobile" placeholder="Mobile Number" pattern="^[0-9]{10}$" required>
+                        <div class="invalid-feedback">Please enter a valid 10-digit mobile number.</div>
+                    </div>
+                    <div class="mb-3 input-group">
+                        <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" oninput="checkPasswordStrength()" required>
+                        <div class="invalid-feedback">Please enter a password.</div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="strength-meter">
+                            <div id="strengthMeterFill" class="strength-meter-fill"></div>
+                        </div>
+                        <small id="strengthMessage" class="text-muted"></small>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+                <div class="text-center mt-4">
+                    <p>Already have an account? <a href="login.html" class="btn btn-link">Go to Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Registration Successful</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Your registration was successful! You can now log in.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="redirectToLogin()">Go to Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle form submission -->
+    <script>
+        function checkPasswordStrength() {
+            const password = document.getElementById('password').value;
+            const strengthMeter = document.getElementById('strengthMeterFill');
+            const strengthMessage = document.getElementById('strengthMessage');
+            let strength = 0;
+
+            if (password.length >= 8) strength += 25;
+            if (/[A-Z]/.test(password)) strength += 25;
+            if (/[0-9]/.test(password)) strength += 25;
+            if (/[^A-Za-z0-9]/.test(password)) strength += 25;
+
+            strengthMeter.style.width = strength + '%';
+            if (strength === 100) {
+                strengthMeter.style.backgroundColor = 'green';
+                strengthMessage.textContent = 'Strong password';
+            } else if (strength >= 50) {
+                strengthMeter.style.backgroundColor = 'orange';
+                strengthMessage.textContent = 'Moderate password';
+            } else {
+                strengthMeter.style.backgroundColor = 'red';
+                strengthMessage.textContent = 'Weak password';
+            }
+        }
+
+        function submitForm(event) {
+            event.preventDefault(); // Prevent default form submission
+            const form = document.getElementById('registrationForm');
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+
+            const registrationData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                mobileNumber: document.getElementById('mobileNumber').value,
+                password: document.getElementById('password').value
+            };
+
+            fetch('http://localhost:8080/api/registration/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(registrationData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    const modal = new bootstrap.Modal(document.getElementById('successModal'));
+                    modal.show();
+                } else {
+                    throw new Error('Registration failed');
+                }
+            })
+            .catch(error => {
+                alert("Error: " + error.message);
+            });
+        }
+
+        function redirectToLogin() {
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

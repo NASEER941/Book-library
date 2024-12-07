@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .contact-form-container {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #f7f7f7;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .left-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .form-container {
+            padding: 30px;
+        }
+         /* Navbar Styles */
+    .navbar-dark-custom {
+      background-color: #2c3e50; /* Darker Gray Background */
+      color: #b0b0b0; /* Subtle Silver Text */
+    }
+  
+    .navbar-dark-custom .navbar-brand {
+      color: white;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .navbar-dark-custom .navbar-brand:hover {
+      color: #f8f9fa; /* White on Hover */
+    }
+  
+    .navbar-dark-custom .nav-link {
+      color: white; /* Medium Gray for Links */
+      transition: color 0.3s ease-in-out;
+    }
+  
+    .navbar-dark-custom .nav-link:hover {
+      color: #f8f9fa; /* White on Hover */
+    }
+  
+    .navbar-nav .nav-link.dropdown-toggle {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      color: #fff; /* Adjust based on navbar color */
+    }
+  
+    .navbar-nav .nav-link .arrow {
+      margin-left: 5px;
+      font-size: 0.8em;
+      display: inline-block;
+      transition: transform 0.2s ease-in-out;
+    }
+  
+    .navbar-nav .nav-link.dropdown-toggle[aria-expanded="true"] .arrow {
+      transform: rotate(180deg); /* Rotate arrow when expanded */
+    }
+  
+    .signup-btn {
+      background-color: transparent;
+      color: #a8a8a8;
+      border: 1px solid #a8a8a8;
+      transition: background-color 0.3s, color 0.3s;
+    }
+  
+    .signup-btn:hover {
+      background-color: #333333; /* Dark Gray */
+      color: white; /* White on Hover */
+    }
+    
+body {
+     background: linear-gradient(to right, #b6cbec, #bdd3dd);
+
+
+
+
+ /* Gradient background */
+        font-family: 'Arial', sans-serif;
+        color: #333;
+    } 
+  
+    </style>
+</head>
+<body>
+     <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark-custom shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="images/NASEER LOGO.png" width="110" height="90" alt="Logo">
+            India's Car Repair
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="navbar.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutus2.html">About Us</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                      <li><a class="dropdown-item" href="services.html">workshop</a></li>
+                      <li><a class="dropdown-item" href="tyres.html">tyres</a></li>
+                      <li><a class="dropdown-item" href="oilchange.html">oilchange</a></li>
+                      <li><a class="dropdown-item" href="carwash.html">carwash</a></li>
+                      <li><a class="dropdown-item" href="Acessories.html">Accessories</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="contact2.html">Contact Us</a></li>
+               
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container mt-5">
+    <div class="row">
+        <!-- Left Image Section -->
+        <div class="col-md-6">
+            <img src="images/illu.jpg" alt="Contact Image" class="img-fluid rounded">
+        </div>
+
+        <!-- Form Section -->
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">Contact Us</h2>
+            <form id="contactForm">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required placeholder="Enter your name">
+                </div>
+
+                <div class="mb-3">
+                    <label for="mobileNumber" class="form-label">Mobile Number:</label>
+                    <input type="tel" id="mobileNumber" name="mobileNumber" class="form-control" pattern="[0-9]{10}" required placeholder="Enter your 10-digit mobile number">
+                    <small class="form-text text-muted">Please enter a valid 10-digit mobile number.</small>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required placeholder="Enter your email">
+                </div>
+
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message:</label>
+                    <textarea id="message" name="message" class="form-control" rows="4" required placeholder="Write your message here"></textarea>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </div>
+            </form>
+
+            <div id="responseMessage" class="mt-3 text-center"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // const mobileNumber = document.getElementById('mobileNumber').value;
+
+    // if (!/^\d{10}$/.test(mobileNumber)) {
+    //     document.getElementById('responseMessage').innerText = 'Please enter a valid 10-digit mobile number.';
+    //     return;
+    // }
+
+    const formData = {
+        name: document.getElementById('name').value,
+        mobileNumber: document.getElementById('mobileNumber').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+    };
+
+    fetch('http://localhost:8080/api/contacts/addContact', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('responseMessage').innerText = 'Your contact information has been submitted successfully!';
+        document.getElementById('contactForm').reset(); // Reset form after submission
+    })
+    .catch(error => {
+        document.getElementById('responseMessage').innerText = 'There was an error submitting your contact information: ' + error.message;
+    });
+});
+
+</script>
+
+<!-- Custom CSS for Better Styling -->
+<style>
+    /* Container styling */
+    .container {
+        max-width: 1100px;
+    }
+
+    /* Left image styling */
+    .img-fluid {
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    /* Form styling */
+    .form-container h2 {
+        font-size: 2rem;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #0056b3;
+        box-shadow: 0 0 5px rgba(0, 86, 179, 0.4);
+    }
+
+    .btn-primary {
+        background-color: #0056b3;
+        border-radius: 25px;
+        padding: 12px;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #003f7f;
+        transform: scale(1.05);
+    }
+
+    /* Response message styling */
+    #responseMessage {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+</style>
+
+  
+  <!-- Footer -->
+<footer class="footer text-white py-4" style="background-color: #2c3e50;">
+  <div class="container">
+    <div class="row">
+      <!-- Logo and Description -->
+      <div class="col-lg-3 mb-3 mb-lg-0">
+        <img src="images/NASEER LOGO.png" alt="Logo" class="footer-logo mb-3" width="150" height="120">
+        <p class="footer-description">
+          We provide reliable and affordable car repair services, ensuring your vehicle is always in top condition.
+        </p>
+      </div>
+
+      <!-- Useful Links -->
+      <div class="col-lg-3 mb-3 mb-lg-0">
+        <h5>Useful Links</h5>
+        <ul class="footer-links list-unstyled">
+          <li><a href="navbar.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="aboutus2.html" class="text-white text-decoration-none">About Us</a></li>
+          <li><a href="services.html" class="text-white text-decoration-none">Services</a></li>
+          <li><a href="contact2.html" class="text-white text-decoration-none">Contact Us</a></li>
+          <li><a href="privacy2.html" class="text-white text-decoration-none">Privacy Policy & Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-lg-3 mb-3 mb-lg-0">
+        <h5>Follow Us</h5>
+        <div class="social-icons">
+          <a href="https://www.facebook.com" class="social-icon text-white" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://twitter.com" class="social-icon text-white" title="Twitter"><i class="bi bi-twitter"></i></a>
+          <a href="https://www.instagram.com" class="social-icon text-white" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com" class="social-icon text-white" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="col-lg-3">
+        <h5>Our Location</h5>
+        <div class="google-map">
+          <iframe src="https://www.google.com/maps/embed?pb=..." 
+            width="100%" 
+            height="200" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- CSS for Footer -->
+<style>
+  .footer {
+    background-color: #2c3e50;
+    padding: 20px 0;
+    color: white;
+  }
+
+  .footer-logo {
+    max-width: 100%;
+  }
+
+  .footer-description {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .footer h5 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover {
+    color: #f8c537;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+
+  .social-icons a {
+    color: white;
+    font-size: 24px;
+    transition: transform 0.3s, color 0.3s;
+  }
+
+  .social-icons a:hover {
+    color: #f8c537;
+    transform: scale(1.2);
+  }
+
+  .google-map iframe {
+    border-radius: 5px;
+  }
+</style>
+
+<!-- JavaScript for Footer -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const socialIcons = document.querySelectorAll(".social-icon");
+
+    socialIcons.forEach(icon => {
+      icon.addEventListener("mouseenter", () => {
+        icon.style.transform = "scale(1.2)";
+      });
+
+      icon.addEventListener("mouseleave", () => {
+        icon.style.transform = "scale(1)";
+      });
+    });
+  });
+</script>
+
+<!-- Add Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+</body>
+</html>
